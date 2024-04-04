@@ -10,6 +10,7 @@ const DestinationInput = ({ onSearch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     onSearch(destination);
+  
   };
 
   return (

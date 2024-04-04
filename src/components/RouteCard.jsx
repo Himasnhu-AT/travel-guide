@@ -1,11 +1,16 @@
 import React from 'react';
 
-const RouteCard = ({ route }) => {
+const RouteCard = ({ routes } = {}) => {
   return (
-    <div>
+    <div className='flex justify-center items-center'>
+      <h1>Routes: </h1>
       {/* Display route details */}
-      <h3>{route.name}</h3>
-      <p>{route.description}</p>
+      {routes.map((route) => (
+        <div key={route.id}>
+          <h3>{route.name}</h3>
+          <p>{route.description}</p>
+        </div>
+      ))}
       {/* Add more details as needed */}
     </div>
   );
