@@ -13,7 +13,7 @@ function Header() {
             <span className="text-white text-2xl font-semibold ml-2">Travel Guide</span>
           </a>
         </div>
-       
+      
         <div className="flex items-center mx-4 space-x-8"> 
           <ul className="flex space-x-8 text-white">
             <li><a href="#" className="hover:text-red-200">Home</a></li>

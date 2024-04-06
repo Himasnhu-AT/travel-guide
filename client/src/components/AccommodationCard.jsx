@@ -2,13 +2,19 @@ import React from 'react';
 
 const AccommodationCard = ({ accommodation }) => {
   return (
-    <div>
+    <div className="border border-gray-300 rounded-md p-4 mb-4">
       {/* Display accommodation details */}
-      <h3>{accommodation.name}</h3>
-      <p>{accommodation.description}</p>
+      <h3 className="text-xl font-semibold mb-2">{accommodation.name}</h3>
+      <p className="text-gray-600">{accommodation.description}</p>
       {/* Add more details as needed */}
     </div>
   );
 };
 
-export default AccommodationCard;
+// Sample accommodation data
+const accommodationData = {
+  name: "Luxury Resort",
+  description: "Experience luxury like never before with breathtaking views and world-class amenities."
+};
+
+export default () => <AccommodationCard accommodation={accommodationData} />;
