@@ -1,5 +1,5 @@
 import React from 'react';
-import travelGuideLogo from '../Public/travelGuideLogo.jpeg'; 
+import travelGuideLogo from '../../Public/travelGuideLogo.jpeg';
 import FAQ from '../features/FAQsPage';
 
 function Header() {
