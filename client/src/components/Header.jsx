@@ -19,7 +19,7 @@ function Header() {
             <li><a href="#" className="hover:text-red-200">About</a></li>
             <li><a href="#" className="hover:text-red-200">Services</a></li>
             <li><a href="#" className="hover:text-red-200">Pricing</a></li>
-            <li><a href="#" className="hover:text-red-200">Contact</a></li>
+            <li><a href="#" className="hover:text-red-200">Contact Us</a></li>
           </ul>
           <div className="mr-4"> {/* Add mr-4 for margin on x-axis */}
             <button className="bg-white text-blue-900 px-3 py-1 rounded-md hover:bg-blue-900 hover:text-white transition duration-300 ease-in-out">Get started</button>
