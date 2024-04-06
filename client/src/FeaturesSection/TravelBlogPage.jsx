@@ -42,19 +42,31 @@ const TravelBlogPage = () => {
       image: 'https://via.placeholder.com/300',
       description: 'Continue adding informative and inspiring articles to inspire and inform your audience about different aspects of travel and exploration.',
     },
+    {
+      id: 7,
+      title: 'Article Title 7',
+      image: 'https://via.placeholder.com/300',
+      description: 'Continue adding informative and inspiring articles to inspire and inform your audience about different aspects of travel and exploration.',
+    },
+    {
+      id: 8,
+      title: 'Article Title 8',
+      image: 'https://via.placeholder.com/300',
+      description: 'Continue adding informative and inspiring articles to inspire and inform your audience about different aspects of travel and exploration.',
+    },
   ];
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">Travel Blog or Articles</h1>
-      <div className="flex flex-wrap justify-between">
+    <div className="container mx-auto p-8">
+      <h1 className="text-3xl font-bold mb-6 text-center">Travel Blog or Articles</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
         {/* Map over the articles array to dynamically generate cards */}
         {articles.map(article => (
           <Card
             key={article.id}
             hoverable
-            className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/5 mb-8"
-            cover={<img alt={article.title} src={article.image} />}
+            className="w-full"
+            cover={<img alt={article.title} src={article.image} className="h-64 object-cover" />}
           >
             <Meta title={article.title} description={article.description} />
           </Card>
