@@ -1,3 +1,4 @@
+// Remove Password field, redirect it to another page that'll show message: Check email for verification URL
 import React, { useState } from 'react';
 
 const Login = () => {
