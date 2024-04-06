@@ -7,8 +7,8 @@ import AccommodationCard from './components/AccommodationCard';
 import DiningOptionCard from './components/DiningOptionCard';
 import AttractionCard from './components/AttractionCard';
 import Hompage from './components/HomePage';
-import Footer from "./footer";
-import Header from "./Header";
+import Footer from "./components/footer";
+import Header from "./components/Header";
 import FAQ from "/Pages/signup";
 
 
