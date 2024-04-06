@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "./footer";
 import Header from "./Header";
-import FAQ from "../Pages/signup";
+import FAQ from "/Pages/signup";
 
 function App() {
   return (
