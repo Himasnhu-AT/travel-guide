@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NotFoundPage from './Pages/NotFoundPage'; // Import your NotFoundPage component
 import Header from "./components/Header";
-import Footer from "./components/footer";
+import MyFooter from "./components/footer";
 import AboutPage from './Pages/aboutus';
 import LoginPage from './Pages/login';
 import HomePage from './components/HomePage';
@@ -21,7 +21,7 @@ const App = () => {
           {/* Define other routes here */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-        <Footer />
+        <MyFooter />
       </div>
     </Router>
   );

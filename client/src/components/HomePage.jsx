@@ -3,7 +3,6 @@ import HeroSection from "./heroSection";
 import FamousPlaces from "./FamousPlaces";
 import TravelBlogPage from "../FeaturesSection/TravelBlogPage";
 import UserReviewsPage from "../FeaturesSection/UserReviewsPage";
-import Footer from "./footer";
 import ServiceSection from "./ServiceSection";
 
 

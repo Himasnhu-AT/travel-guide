@@ -1,50 +1,62 @@
 import React from 'react';
-import { FaGithub, FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
-import travelGuideLogo from '../../Public/travelGuideLogo.png';
+import travelGuideLogo from '../../Public/travelGuideLogo.jpeg';
+import { BsDribbble, BsFacebook, BsGithub, BsInstagram, BsTwitter } from 'react-icons/bs';
 
 function Footer() {
   return (
-    <footer className="bg-black text-white py-4 px-8 mt-2 flex justify-between items-center">
-      <div className="flex space-x-4 items-center">
-        <ul className="flex space-x-4">
-          <li><a href="/" className="hover:text-gray-200">Home</a></li>
-          <li><a href="/about" className="hover:text-gray-200">About</a></li>
-          <li><a href="/contact" className="hover:text-gray-200">Contact</a></li>
-        </ul>
-        <div className="flex items-center">
-          <p className="mr-4 text-xl">Contributors:</p>
-          <div className="flex flex-wrap">
-            <span className="mx-2 mb-2">
-              <a href="https://twitter.com/example" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">Rahul Kumar</a>
-            </span>
-            <span className="mx-2 mb-2">
-              <a href="https://twitter.com/example" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">Himanshu</a>
-            </span>
-            <span className="mx-2 mb-2">
-              <a href="https://twitter.com/example" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">Bhargav Naidu</a>
-            </span>
-            <span className="mx-2 mb-2">
-              <a href="https://twitter.com/example" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">Ridhi Sambhor</a>
-            </span>
-            <span className="mx-2 mb-2">
-              <a href="https://twitter.com/example" target="_blank" rel="noopener noreferrer" className="hover:text-gray-200">Priyam</a>
-            </span>
+    <footer className="bg-gray-900 text-white">
+      <div className="container">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          <div className="flex justify-center">
+            <img src={travelGuideLogo} alt="Travel Guide Logo" className="w-40 h-auto rounded-full shadow-lg mt-4" />
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-4 mt-4 ">Importance Links</h3>
+            <ul>
+              <li className="mb-2">
+                <a href="#" className="hover:text-gray-300">Home</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-gray-300">About</a>
+                <li>
+                <a href="#" className="hover:text-gray-300">Contact</a>
+              </li>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold mb-4 mt-4">Contributor</h3>
+            <ul>
+              <li className="mb-2">
+                <a href="#" className="hover:text-gray-300">Rahul Kumar</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-gray-300">Himanshu</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-gray-300">Priyam</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-gray-300">Bhargav Naidu</a>
+              </li>
+              <li>
+                <a href="#" className="hover:text-gray-300">Ridhi Sambhor</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <hr className="my-8 border-gray-700" />
+        <div className="flex justify-between items-center">
+          <div className="text-sm ml-4">&copy; TravelGuide 2022</div>
+          <div className="flex space-x-4 mb-2">
+            <a href="#" className="text-2xl hover:text-gray-300"><BsFacebook /></a>
+            <a href="#" className="text-2xl hover:text-gray-300"><BsInstagram /></a>
+            <a href="#" className="text-2xl hover:text-gray-300"><BsTwitter /></a>
+            <a href="#" className="text-2xl hover:text-gray-300"><BsGithub /></a>
+            <a href="#" className="text-2xl hover:text-gray-300"><BsDribbble /></a>
           </div>
         </div>
       </div>
-      <div className="flex items-center">
-        {/* Travel logo */}
-        <img src={travelGuideLogo} alt="Travel Guide" className="h-8 w-auto mr-4" />
-        
-        {/* Social media links */}
-        <div className="flex items-center space-x-4">
-          <a href="https://github.com/travelguide" className="text-white hover:text-gray-200" target="_blank" rel="noopener noreferrer"><FaGithub size={20} /></a>
-          <a href="https://linkedin.com/travelguide" className="text-white hover:text-gray-200" target="_blank" rel="noopener noreferrer"><FaLinkedin size={20} /></a>
-          <a href="https://facebook.com/travelguide" className="text-white hover:text-gray-200" target="_blank" rel="noopener noreferrer"><FaFacebook size={20} /></a>
-          <a href="https://twitter.com/travelguide" className="text-white hover:text-gray-200" target="_blank" rel="noopener noreferrer"><FaTwitter size={20} /></a>
-        </div>
-      </div>
-      <p className="text-white">&copy; {new Date().getFullYear()} Travel Guide. All rights reserved.</p>
     </footer>
   );
 }
