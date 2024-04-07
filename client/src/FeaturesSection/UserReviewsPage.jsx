@@ -4,7 +4,7 @@ import { Card, Row, Col } from 'antd';
 const { Meta } = Card;
 
 const UserReviewsPage = () => {
-  // Define an array of objects for different categories of user reviews
+ 
   const userReviewCategories = [
     {
       id: 1,
@@ -54,23 +54,11 @@ const UserReviewsPage = () => {
       description: 'Review outdoor activities such as hiking trails, parks, beaches, and adventure sports facilities, helping others find exciting outdoor experiences and scenic spots to explore.',
       imageSrc: 'https://via.placeholder.com/300',
     },
-    {
-      id: 9,
-      name: 'Health and Wellness',
-      description: 'Provide reviews and ratings for spas, wellness centers, yoga studios, and fitness facilities, promoting health and relaxation during travel.',
-      imageSrc: 'https://via.placeholder.com/300',
-    },
-    {
-      id: 10,
-      name: 'Cultural Experiences',
-      description: 'Share cultural experiences such as festivals, performances, workshops, and heritage sites, allowing travelers to immerse themselves in local traditions and customs.',
-      imageSrc: 'https://via.placeholder.com/300',
-    },
   ];
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">User Reviews and Ratings</h1>
+    <div className="container mx-auto p-8">
+      <h1 className="text-3xl font-bold mb-6 text-center">User Reviews and Ratings</h1>
       <Row gutter={[16, 16]}>
         {/* Map over the userReviewCategories array to render each category dynamically */}
         {userReviewCategories.map(category => (
@@ -78,7 +66,7 @@ const UserReviewsPage = () => {
             <Card
               hoverable
               className="w-full"
-              cover={<img alt={category.name} src={category.imageSrc} />}
+              cover={<img alt={category.name} src={category.imageSrc} className="h-64 object-cover" />}
             >
               <Meta title={category.name} description={category.description} />
             </Card>

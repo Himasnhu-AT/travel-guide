@@ -9,7 +9,10 @@ Welcome to our `Travel Guide` project! Whether you're an avid explorer venturing
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Contributors](#contributors)
+- [Preview_Project](#preview_project)
 - [License](#license)
+
 
 ## Introduction
 
@@ -59,6 +62,19 @@ backend:
 - ReactJS(`JS`)
 - Database (`postgresql` and `reddis`)
 - ORM(`prisma`)
+
+### Contributors
+
+- [Contributor 1](https://github.com/jaiyankargupta)
+- [Contributor 2](https://github.com/Himasnhu-AT)
+- [Contributor 3](https://github.com/Saishivabhargav)
+- [Contributor 4](https://github.com/Ridhi0812)
+- [Contributor 5](https://github.com/priyam1706)
+
+
+## Preview_Project
+
+- [DEMO Link](travel-guide-silk.vercel.app)
 
 ## License
 
