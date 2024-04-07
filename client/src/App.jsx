@@ -8,7 +8,7 @@ import HomePage from './components/HomePage';
 // import RouteSuggestions from './ServiceSection/RouteCard';
 // import AccommodationRecommendations from './ServiceSection/AccommodationCard';
 // import DiningOptions from './ServiceSection/DiningOptionCard';
-import SearchPage from './ServiceSection/SearchResults';
+
 import ContactAndFAQsPage from './Pages/ContactAndFAQsPage';
 
 
@@ -27,6 +27,7 @@ const App = () => {
             <Route path="dining-options" element={<DiningOptions />} />  */}
           </Route>
           <Route path="/" element={<HomePage />} /> 
+          {/* <Footer/> */}
         </Routes>
       </BrowserRouter>
     </div>

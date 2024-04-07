@@ -1,69 +1,50 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import { Card } from 'antd';
 
-const TravelTipsPage = () => {
-  // Array of objects containing travel tips
-  const travelTips = [
+const { Meta } = Card;
+
+const TravelBlogPage = () => {
+  const articles = [
     {
       id: 1,
-      title: 'Packing Tips',
-      description: 'Pack versatile clothing and consider the weather at your destination.',
+      title: 'Article Title 1',
+      image: 'https://via.placeholder.com/300',
+      description: 'Write engaging travel articles or blogs covering various topics, such as destination guides, travel tips, personal travel experiences, and industry updates.',
     },
     {
       id: 2,
-      title: 'Research Local Customs',
-      description: 'Learn about the local customs and traditions to respect the culture.',
+      title: 'Article Title 2',
+      image: 'https://via.placeholder.com/300',
+      description: 'Continue adding informative and inspiring articles to inspire and inform your audience about different aspects of travel and exploration.',
     },
-    {
-      id: 3,
-      title: 'Safety First',
-      description: 'Keep your belongings secure and be cautious of your surroundings.',
-    },
-    {
-      id: 4,
-      title: 'Stay Hydrated',
-      description: 'Drink plenty of water to stay hydrated, especially during long flights or hot weather.',
-    },
-    {
-      id: 5,
-      title: 'Travel Insurance',
-      description: 'Consider purchasing travel insurance to protect yourself from unexpected events.',
-    },
-    {
-      id: 6,
-      title: 'Learn Basic Phrases',
-      description: 'Learn basic phrases in the local language to communicate with locals and show respect.',
-    },
-    {
-      id: 7,
-      title: 'Carry Cash',
-      description: 'Always carry some cash for emergencies and places that may not accept cards.',
-    },
-    {
-      id: 8,
-      title: 'Stay Flexible',
-      description: 'Be flexible with your plans and embrace unexpected changes or delays.',
-    },
-    {
-      id: 9,
-      title: 'Pack Light',
-      description: 'Avoid overpacking by packing only essentials and versatile clothing items.',
-    },
-    {
-      id: 10,
-      title: 'Stay Open-Minded',
-      description: 'Be open to new experiences and embrace the local culture and customs.',
-    },
+    // Add more articles here...
   ];
 
+  const containerRef = useRef(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      containerRef.current.scrollLeft += 2; // Adjust the scroll speed here
+    }, 50); // Adjust the scroll interval here
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-semibold mb-8">Travel Tips and Advice</h1>
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {/* Map over the travelTips array to render each tip dynamically */}
-        {travelTips.map(tip => (
-          <div key={tip.id} className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-lg font-semibold mb-2">{tip.title}</h2>
-            <p className="text-gray-700">{tip.description}</p>
+    <div className="container mx-auto p-8 overflow-x-auto">
+      <h1 className="text-3xl font-bold mb-6 text-center">Travel Blog or Articles</h1>
+      <div ref={containerRef} className="flex flex-nowrap gap-6">
+        {/* Map over the articles array to dynamically generate cards */}
+        {articles.map(article => (
+          <div key={article.id} className="card-wrapper">
+            <Card
+              hoverable
+              className="w-full border rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105"
+              cover={<img alt={article.title} src={article.image} className="h-40 object-cover" />}
+              style={{ borderColor: 'transparent' }}
+            >
+              <Meta title={article.title} description={article.description} />
+            </Card>
           </div>
         ))}
       </div>
@@ -71,4 +52,4 @@ const TravelTipsPage = () => {
   );
 }
 
-export default TravelTipsPage;
+export default TravelBlogPage;

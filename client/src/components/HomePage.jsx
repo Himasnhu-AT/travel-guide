@@ -3,8 +3,9 @@ import HeroSection from "./heroSection";
 import FamousPlaces from "./FamousPlaces";
 import TravelBlogPage from "../FeaturesSection/TravelBlogPage";
 import UserReviewsPage from "../FeaturesSection/UserReviewsPage";
-import SearchPage from "../ServiceSection/SearchResults";
 import Footer from "./footer";
+import ServiceSection from "./ServiceSection";
+
 
 
 
@@ -12,8 +13,9 @@ function HomePage() {
   return (
     <div className="flex flex-col min-h-screen">
      <HeroSection/>
-     <SearchPage/>
+     
      <FamousPlaces/> 
+     {/* <ServiceSection/> */}
      <TravelBlogPage/>
      <UserReviewsPage/>
      <Footer/>

@@ -1,5 +1,5 @@
 import React from 'react';
-import travelGuideLogo from '../../Public/travelGuideLogo.png';
+import travelGuideLogo from '../../Public/headerImageNobg.png';
 
 function HeroSection() {
   return (
@@ -17,7 +17,7 @@ function HeroSection() {
             </div>
           </div>
           <div className="lg:w-1/2 mb-8 lg:mb-0">
-            <img src={travelGuideLogo} className="w-50 h-60 lg:w-56 lg:h-56 rounded-full mx-auto lg:mx-0 mr-9 lg:mr-34" alt="Travel Guide Logo" />
+            <img src={travelGuideLogo} className="mx-auto lg:mx-0 mr-9 lg:mr-34" alt="Travel Guide Logo" />
           </div>
         </div>
       </div>
