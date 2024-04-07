@@ -18,7 +18,7 @@ function HomePage() {
      {/* <ServiceSection/> */}
      <TravelBlogPage/>
      <UserReviewsPage/>
-     <Footer/>
+     
     </div>
   );
 }

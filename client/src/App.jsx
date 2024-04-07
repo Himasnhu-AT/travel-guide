@@ -1,36 +1,29 @@
 import React from 'react';
-import Footer from "./components/footer"; 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import NotFoundPage from './Pages/NotFoundPage'; // Import your NotFoundPage component
 import Header from "./components/Header";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Footer from "./components/footer";
 import AboutPage from './Pages/aboutus';
-import Login from './Pages/login'; 
+import LoginPage from './Pages/login';
 import HomePage from './components/HomePage';
-// import RouteSuggestions from './ServiceSection/RouteCard';
-// import AccommodationRecommendations from './ServiceSection/AccommodationCard';
-// import DiningOptions from './ServiceSection/DiningOptionCard';
-
 import ContactAndFAQsPage from './Pages/ContactAndFAQsPage';
-
 
 const App = () => {
   return (
-    <div className="flex flex-col min-h-screen">
-      <BrowserRouter>
+    <Router>
+      <div className="flex flex-col min-h-screen">
         <Header />
         <Routes>
-          <Route path="about" element={<AboutPage />} />
-          <Route path="login" element={<Login />} />
-          <Route path='support' element={<ContactAndFAQsPage />} />
-          <Route path="services">
-            {/* <Route path="route-suggestions" element={<RouteSuggestions />} />
-            <Route path="accommodation-recommendations" element={<AccommodationRecommendations />} />
-            <Route path="dining-options" element={<DiningOptions />} />  */}
-          </Route>
-          <Route path="/" element={<HomePage />} /> 
-          {/* <Footer/> */}
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/support" element={<ContactAndFAQsPage />} />
+          {/* Define other routes here */}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </BrowserRouter>
-    </div>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
