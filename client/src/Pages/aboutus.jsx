@@ -11,8 +11,8 @@ const AboutPage = () => {
     {
       name: "Rahul Kumar",
       image: "https://avatars.githubusercontent.com/u/146073621?v=4",
-      github: "https://github.com/rahulkumar",
-      linkedin: "https://linkedin.com/in/rahulkumar"
+      github: "https://github.com/jaiyankargupta",
+      linkedin: "https://linkedin.com/in/jaiyankargupta"
     },
     {
       name: "Himanshu",

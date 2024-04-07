@@ -5,39 +5,41 @@ const Signup = () => {
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    setErrors({ ...errors, [e.target.name]: '' });
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value.trim() }); // Trim removes leading and trailing spaces
+    setErrors({ ...errors, [name]: '' });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const newErrors = {};
 
-    if (!formData.name) {
+    if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
     }
 
-    if (!formData.username) {
+    if (!formData.username.trim()) {
       newErrors.username = 'Username is required';
+    } else if (formData.username.indexOf(' ') >= 0) {
+      newErrors.username = 'Username cannot contain spaces';
     }
 
-    if (!formData.email) {
+    if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Email is invalid';
     }
 
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
-      return;
-    }
+    setErrors(newErrors);
 
-    // Process signup
-    // Example: Call API to create new user account
+    if (Object.keys(newErrors).length === 0) {
+      // Proceed with form submission
+      console.log('Form submitted:', formData);
+    }
   };
 
   return (
-    <div className="container mx-auto mt-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="max-w-md mx-auto bg-white rounded-lg overflow-hidden shadow-md">
         <div className="px-6 py-8">
           <h2 className="text-2xl font-semibold mb-4 text-center">Sign Up</h2>
@@ -50,7 +52,7 @@ const Signup = () => {
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 ${errors.name ? 'border-red-500' : ''}`}
+                className={`mt-1 block w-full rounded-md border ${errors.name ? 'border-red-500' : 'border-gray-300'} shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50`}
               />
               {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
             </div>
@@ -62,7 +64,7 @@ const Signup = () => {
                 name="username"
                 value={formData.username}
                 onChange={handleChange}
-                className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 ${errors.username ? 'border-red-500' : ''}`}
+                className={`mt-1 block w-full rounded-md border ${errors.username ? 'border-red-500' : 'border-gray-300'} shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50`}
               />
               {errors.username && <p className="text-red-500 text-sm mt-1">{errors.username}</p>}
             </div>
@@ -74,7 +76,7 @@ const Signup = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 ${errors.email ? 'border-red-500' : ''}`}
+                className={`mt-1 block w-full rounded-md border ${errors.email ? 'border-red-500' : 'border-gray-300'} shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50`}
               />
               {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
             </div>

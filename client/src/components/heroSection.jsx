@@ -1,5 +1,6 @@
 import React from 'react';
 import travelGuideLogo from '../../Public/headerImageNobg.png';
+import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 
 function HeroSection() {
   return (
@@ -12,8 +13,9 @@ function HeroSection() {
               Whether you're planning your next adventure or looking for inspiration, Travel Guide is your ultimate companion. Discover personalized recommendations, create customized itineraries, and embark on unforgettable journeys.
             </p>
             <div className="text-center lg:text-left">
-              <a href="/" className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300 ease-in-out mr-4">Get Started</a>
-              <a href="/about" className="text-blue-600 border border-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-100 transition duration-300 ease-in-out">Learn More</a>
+              {/* Use Link component for internal navigation */}
+              <Link to="/signup" className="bg-blue-600 text-white px-6 py-3 rounded-md font-semibold hover:bg-blue-700 transition duration-300 ease-in-out mr-4">Get Started</Link>
+              <Link to="/about" className="text-blue-600 border border-blue-600 px-6 py-3 rounded-md font-semibold hover:bg-blue-100 transition duration-300 ease-in-out">Learn More</Link>
             </div>
           </div>
           <div className="lg:w-1/2 mb-8 lg:mb-0">
