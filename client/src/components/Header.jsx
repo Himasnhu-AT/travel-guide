@@ -55,7 +55,7 @@ function Header() {
               </div>
             )}
           </div>
-          <a href="contactfaqs" className="hover:text-green-900 hover:border px-2 py-1 font-semibold">ContactFAQs</a>
+          <a href="support" className="hover:text-green-900 hover:border px-2 py-1 font-semibold">Contact</a>
           <div className="mr-4"> 
             <button className="bg-green-600 text-white   px-3 py-1 rounded-md hover:bg-blue-900 hover:text-white transition duration-300 ease-in-out font-semibold">Login</button>
           </div>
