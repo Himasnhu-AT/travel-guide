@@ -30,22 +30,23 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen bg-gray-100">
       <div className="max-w-md w-full bg-white rounded-lg overflow-hidden shadow-md">
-        <div className="px-6 py-8">
+        <div className="px-8 py-8">
           <h2 className="text-3xl font-semibold mb-4 text-center">Login</h2>
           <form onSubmit={handleSubmit}>
-            <div className="mb-4">
-              <label className="block text-sm font-medium text-gray-700">Email</label>
+            <div className="mb-6">
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1">Email</label>
               <input
+                id="email"
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 ${errors.email ? 'border-red-500' : ''}`}
+                className={`w-full px-3 py-2 border rounded-md text-sm focus:outline-none ${errors.email ? 'border-red-500' : 'border-gray-300 focus:border-blue-500'}`}
               />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
             </div>
             <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out w-full">
               Login
