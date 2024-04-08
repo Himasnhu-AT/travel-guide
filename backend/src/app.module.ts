@@ -8,6 +8,7 @@ import { JwtModule } from '@nestjs/jwt';
 import { JwtStrategy } from './auth/jwt.strategy';
 import { AuthService } from './auth/auth.service';
 import { AuthController } from './auth/auth.controller';
+import { GetTouristAttractionModule } from './getTouristAttraction/getTouristAttraction.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { AuthController } from './auth/auth.controller';
       secret: process.env.JWT_SECRET,
       signOptions: { expiresIn: process.env.EXPIRES_IN },
     }),
+    GetTouristAttractionModule,
   ],
   controllers: [AppController, AuthController],
   providers: [
