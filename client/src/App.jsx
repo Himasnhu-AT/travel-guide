@@ -8,6 +8,16 @@ import LoginPage from './Pages/login';
 import HomePage from './components/HomePage';
 import ContactAndFAQsPage from './Pages/ContactAndFAQsPage';
 import Signup from './Pages/signup';
+import WeatherCard from './ServiceSections/WeatherCard';
+import ServiceSection from './components/ServiceSection';
+import AccommodationBlog from './ServiceSections/BestAccommodation';
+import FoodTravelBlog from './ServiceSections/BestFood';
+import TourismAttractionBlog from './ServiceSections/BestTouristAttraction';
+import TravelBlogPage from './ServiceSections/BestTravel';
+import BudgetFriendlyBlogPage from './ServiceSections/budgetFriendly';
+import AuthorizationPage from './Pages/auth';
+
+
 
 const App = () => {
   return (
@@ -15,10 +25,20 @@ const App = () => {
       <div className="flex flex-col min-h-screen">
         <Header />
         <Routes>
-          <Route path="/home" element={<HomePage />} />
+          <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/CheckWeather" element={<WeatherCard />} />
+          <Route path="/services" element={<ServiceSection />} />
+          <Route path="/bestfood" element={<FoodTravelBlog />} />
+          <Route path="/Accommodation" element={<AccommodationBlog/>} />
+          <Route path="/TourismAttraction" element={<TourismAttractionBlog />} />
+          <Route path="/BudgetFriendlyBlog" element={<BudgetFriendlyBlogPage/>} />
+          <Route path="/besttravel" element={<TravelBlogPage/>} />
+          <Route path="/authorization/" element={<AuthorizationPage/>} />
+
+
           <Route path="/support" element={<ContactAndFAQsPage />} />
           {/* Define other routes here */}
           <Route path="*" element={<NotFoundPage />} />

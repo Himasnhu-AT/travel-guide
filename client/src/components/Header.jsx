@@ -12,8 +12,10 @@ function Header() {
           </a>
         </div>
         <div className="flex items-center mx-4 space-x-8 text-black"> 
-          <a href="/home" className="hover:text-green-900 hover:border px-2 py-1 font-semibold">Home</a>
+          <a href="/" className="hover:text-green-900 hover:border px-2 py-1 font-semibold">Home</a>
           <a href="/about" className="hover:text-green-900  hover:border px-2 py-1 font-semibold" >About</a>
+          <a href="/services" className="hover:text-green-900 hover:border px-2 py-1 font-semibold">Services</a>
+
           <a href="support" className="hover:text-green-900 hover:border px-2 py-1 font-semibold">Contact</a>
           <div className="mr-4"> 
           < a href="/login">

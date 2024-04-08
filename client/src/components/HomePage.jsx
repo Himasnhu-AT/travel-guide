@@ -3,10 +3,7 @@ import HeroSection from "./heroSection";
 import FamousPlaces from "./FamousPlaces";
 import TravelBlogPage from "../FeaturesSection/TravelBlogPage";
 import UserReviewsPage from "../FeaturesSection/UserReviewsPage";
-// import ServiceSection from "./ServiceSection";
-
-
-
+import ServiceSection from "./ServiceSection";
 
 function HomePage() {
   return (
@@ -14,7 +11,7 @@ function HomePage() {
      <HeroSection/>
      
      <FamousPlaces/> 
-     {/* <ServiceSection/> */}
+     <ServiceSection/>
      <TravelBlogPage/>
      <UserReviewsPage/>
      

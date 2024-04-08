@@ -1,32 +1,28 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom'; // Import Link from React Router
 
 const Login = () => {
-  const [formData, setFormData] = useState({ email: '' });
-  const [errors, setErrors] = useState({});
+  const [email, setEmail] = useState('');
+  const [error, setError] = useState('');
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-    // Clear error message when user starts typing
-    setErrors({ ...errors, [e.target.name]: '' });
+    setEmail(e.target.value);
+    setError('');
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newErrors = {};
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'Email is invalid';
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      setErrors(newErrors);
+    if (!email.trim()) {
+      setError('Email is required');
+      return;
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      setError('Email is invalid');
       return;
     }
 
-    // Process login
-    // Example: Call API to authenticate user
+    // Process login or navigate to authorization page
+    window.location.href = `/authorization?email=${email}`;
   };
 
   return (
@@ -39,14 +35,14 @@ const Login = () => {
               <label className="block text-sm font-medium text-gray-700">Email</label>
               <input
                 type="email"
-                name="email"
-                value={formData.email}
+                value={email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 ${errors.email ? 'border-red-500' : ''}`}
+                className={`mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 ${error ? 'border-red-500' : ''}`}
               />
-              {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
+              {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
             </div>
+            {/* Wrap the button inside form, removed Link */}
             <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out w-full">
               Login
             </button>
