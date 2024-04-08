@@ -43,3 +43,36 @@ model Location {
   updatedAt    DateTime       @updatedAt
   TouristPlace TouristPlace[]
 }
+
+model touristAttraction {
+  id                String  @id @default(uuid())
+  name              String?
+  state             String?
+  street            String?
+  lon               Float?
+  lat               Float?
+  address_formatted String?
+  place_id          String?
+}
+
+model eattingsAttraction {
+  id                String  @id @default(uuid())
+  name              String?
+  state             String?
+  street            String?
+  lon               Float?
+  lat               Float?
+  address_formatted String?
+  place_id          String?
+}
+
+model shoppingAttraction {
+  id                String  @id @default(uuid())
+  name              String?
+  state             String?
+  street            String?
+  lon               Float?
+  lat               Float?
+  address_formatted String?
+  place_id          String?
+}
