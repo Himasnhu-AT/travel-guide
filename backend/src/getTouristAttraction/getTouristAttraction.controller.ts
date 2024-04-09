@@ -1,4 +1,4 @@
-import { Body, Controller, Get } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 import { GetTouristAttractionService } from './getTouristAttraction.service';
 import { ApiBody } from '@nestjs/swagger';
 
@@ -6,7 +6,7 @@ import { ApiBody } from '@nestjs/swagger';
 export class GetTouristAttractionController {
   constructor(private service: GetTouristAttractionService) {}
 
-  @Get()
+  @Post()
   @ApiBody({ schema: { properties: { location: { type: 'string' } } } })
   getTouristAttraction(@Body('location') location: string) {
     return this.service.getTouristAttraction(location);

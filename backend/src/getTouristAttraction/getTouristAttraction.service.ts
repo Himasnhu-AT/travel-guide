@@ -31,7 +31,7 @@ export class GetTouristAttractionService {
           place_id: location_id,
         },
       });
-      if (!touristAttraction) {
+      if (touristAttraction.length == 0) {
         touristAttraction = await this.fetchApi(tourism_text, location_id);
 
         const touristJson = touristAttraction;
@@ -43,7 +43,7 @@ export class GetTouristAttractionService {
               street: element.properties.street || '',
               lon: element.properties.lon || '',
               lat: element.properties.lat || '',
-              address_formatted: element.properties.address_formatted || '',
+              address_formatted: element.properties.formatted || '',
               place_id: element.properties.place_id || '',
             },
           });
@@ -56,7 +56,7 @@ export class GetTouristAttractionService {
           place_id: location_id,
         },
       });
-      if (!eating) {
+      if (eating.length == 0) {
         eating = await this.fetchApi(tourism_text, location_id);
 
         const eatingJson = touristAttraction;
@@ -68,7 +68,7 @@ export class GetTouristAttractionService {
               street: element.properties.street || '',
               lon: element.properties.lon || '',
               lat: element.properties.lat || '',
-              address_formatted: element.properties.address_formatted || '',
+              address_formatted: element.properties.formatted || '',
               place_id: element.properties.place_id || '',
             },
           });
@@ -76,24 +76,25 @@ export class GetTouristAttractionService {
       }
 
       // Shopping Attraction
-      eating = await this.prisma.eattingsAttraction.findMany({
+      shopping = await this.prisma.shoppingAttraction.findMany({
         where: {
           place_id: location_id,
         },
       });
-      if (!eating) {
-        eating = await this.fetchApi(tourism_text, location_id);
+      console.log(shopping);
+      if (shopping.length == 0) {
+        shopping = await this.fetchApi(tourism_text, location_id);
 
-        const eatingJson = eating;
-        eatingJson.features.forEach(async (element) => {
-          await this.prisma.eattingsAttraction.createMany({
+        const shoppingJson = eating;
+        shoppingJson.features.forEach(async (element) => {
+          await this.prisma.shoppingAttraction.createMany({
             data: {
               name: element.properties.name || '',
               state: element.properties.state || '',
               street: element.properties.street || '',
               lon: element.properties.lon || '',
               lat: element.properties.lat || '',
-              address_formatted: element.properties.address_formatted || '',
+              address_formatted: element.properties.formatted || '',
               place_id: element.properties.place_id || '',
             },
           });
