@@ -21,8 +21,11 @@ import Dashboard from "./Pages/dashboard";
 const App = () => {
   return (
     <Router>
+      
       <div className="flex flex-col min-h-screen">
-        <Header />
+      {/* <div className='fixed'> */}
+      <Header />
+      {/* </div> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -32,18 +35,11 @@ const App = () => {
           <Route path="/CheckWeather" element={<WeatherCard />} />
           <Route path="/services" element={<ServiceSection />} />
           <Route path="/bestfood" element={<FoodTravelBlog />} />
-          <Route path="/Accommodation" element={<AccommodationBlog />} />
-          <Route
-            path="/TourismAttraction"
-            element={<TourismAttractionBlog />}
-          />
-          <Route
-            path="/BudgetFriendlyBlog"
-            element={<BudgetFriendlyBlogPage />}
-          />
-          <Route path="/besttravel" element={<TravelBlogPage />} />
-          <Route path="/authorization/" element={<AuthorizationPage />} />
-
+          <Route path="/Accommodation" element={<AccommodationBlog/>} />
+          <Route path="/TourismAttraction" element={<TourismAttractionBlog />} />
+          <Route path="/BudgetFriendlyBlog" element={<BudgetFriendlyBlogPage/>} />
+          <Route path="/besttravel" element={<TravelBlogPage/>} />
+          <Route path="/authorization" element={<AuthorizationPage/>} />
           <Route path="/support" element={<ContactAndFAQsPage />} />
           {/* Define other routes here */}
           <Route path="*" element={<NotFoundPage />} />

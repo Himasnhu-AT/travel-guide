@@ -34,6 +34,12 @@ const BudgetFriendlyBlogPage = () => {
       description: 'Discover fun and free attractions to visit during your travels.',
       imageUrl: 'https://via.placeholder.com/300',
     },
+    {
+      id: 6,
+      title: 'Accommodation Options',
+      description: 'Find budget-friendly accommodation options for your next trip.',
+      imageUrl: 'https://via.placeholder.com/300',
+    },
     // Add more blog posts as needed
   ];
 
