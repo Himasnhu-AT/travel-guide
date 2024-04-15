@@ -2,6 +2,11 @@ import { Injectable } from '@nestjs/common';
 import { PrismaService } from 'src/prisma/prisma.service';
 import fetch from 'node-fetch';
 import { Console } from 'console';
+import { GoogleGenerativeAI } from '@google/generative-ai';
+
+interface LocationAI {
+  locations: string[];
+}
 
 @Injectable()
 export class GetTouristAttractionService {
@@ -152,5 +157,46 @@ export class GetTouristAttractionService {
     } catch (error) {
       throw new Error('APi Failed');
     }
+  }
+
+  async getTouristAttractionAIDemo(location: string) {
+    try {
+      const locations = await this.getResponse(location);
+      return locations;
+    } catch {
+      throw new Error('Server failed to get tourist attraction.');
+    }
+  }
+
+  async getResponse(location: string) {
+    const genAI = new GoogleGenerativeAI(process.env.API_KEY);
+
+    async function run() {
+      const model = genAI.getGenerativeModel({ model: 'gemini-pro' });
+
+      const prompt = ` you are an travel guide, you are in ${location} and you want to know about tourist attraction in ${location}
+
+      give output in this format: 
+      {
+        locations: [location1, location2, location3, location4, location5, location6, location7],
+        foods: [food1, food2, food3, food4, food5, food6, food7],
+        shopping: [shopping1, shopping2, shopping3, shopping4, shopping5, shopping6, shopping7]
+      }
+
+     RULES: 
+     1. up-to-date information 
+     2. friendly tone.
+      3. 5-7 locations
+      4. avoid using technical terms
+      5. use simple language
+     `;
+
+      const result = await model.generateContent(prompt);
+      const response = await result.response;
+      const text = response.text();
+      return text;
+    }
+
+    return run();
   }
 }
