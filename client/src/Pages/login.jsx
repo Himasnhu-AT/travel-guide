@@ -1,46 +1,75 @@
-import React, { useState } from 'react';
-import { LoaderCircle } from 'lucide-react';
-import login from './signup';
-import Auth from './auth';
-import { Link } from 'react-router-dom'; // Import Link from React Router
+import React, { useState, useEffect } from "react";
+import { LoaderCircle } from "lucide-react"; // Import LoaderCircle
 
 const Login = () => {
-  const [email, setEmail] = useState('');
-  const [error, setError] = useState('');
-  
+  const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = async (e) => {
     setEmail(e.target.value);
-    setError('');
+    setError("");
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
     if (!email.trim()) {
-      setError('Email is required');
+      setError("Email is required");
+      setIsLoading(false);
       return;
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      setError('Email is invalid');
+      setError("Email is invalid");
+      setIsLoading(false);
       return;
     }
 
-    const fetchdata = await fetch("http://localhost:4000/auth/signin",{
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email: email,
-      }),
-    })
+    const fetchData = async (email) => {
+      console.log("fetching data...")
+      console.log(email)
+      try {
+        const response = await fetch("http://localhost:4000/auth/signin", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email,
+          }),
+        });
 
-    const res = await fetchdata.json()
-    console.log(res)
+        if (!response.ok) {
+          throw new Error(`Signin failed with status: ${response.status}`);
+        }
 
-    // Process login or navigate to authorization page
-    window.location.href = `/authorization?email=${email}`;
+        const data = await response.json();
+        console.log(data);  
+
+          localStorage.setItem("token", data.data.token);
+          localStorage.setItem("name", data.data.name);
+          localStorage.setItem("userId", data.data.id);
+          localStorage.setItem("email", data.data.email);
+
+      } catch (error) {
+        console.error("Signin error:", error);
+        setError("Failed to connect to server or Network Error"); // More specific error message
+      } finally {
+        setLoading(false);
+        window.location.href =`/authorization?email=${email}`
+      }
+    };
+
+    fetchData(email);
   };
+
+  // Handle loader timeout for 5 seconds
+  useEffect(() => {
+    if (isLoading) {
+      const timeoutId = setTimeout(() => setIsLoading(false), 5000); // Set timeout for 5 seconds
+      return () => clearTimeout(timeoutId); // Cleanup function to clear timeout on unmount
+    }
+  }, [isLoading]);
 
   return (
     <div className="flex justify-center items-center h-screen">
@@ -49,21 +78,33 @@ const Login = () => {
           <h2 className="text-3xl font-semibold mb-4 text-center">Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label className="block text-xm font-medium text-gray-700">Email</label>
+              <label className="block text-xm font-medium text-gray-700">
+                Email
+              </label>
               <input
                 type="email"
                 value={email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`py-1 px-2 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 ${error ? 'border-red-500' : ''}`}
+                className={`py-1 px-2 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 ${
+                  error ? "border-red-500" : ""
+                }`}
               />
               {error && <p className="text-red-500 text-sm mt-1">{error}</p>}
             </div>
-            {/* Wrap the button inside form, removed Link */}
-            <button type="submit" className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out w-full">
-              Login
+            <button
+              type="submit"
+              className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out w-full"
+            >
+              {/* Conditionally render loading or login text */}
+              {isLoading ? 'Loading...' : "Login"}
             </button>
-            <div className='mt-3 mb-4 flex float-right'>Don't have an account? <a href="/signup"><span  className='text-blue-500 pl-2 '>  Register Now</span> </a></div>
+            <div className="mt-3 mb-4 flex float-right">
+              Don't have an account?{" "}
+              <a href="/signup">
+                <span className="text-blue-500 pl-2 "> Register Now</span>{" "}
+              </a>
+            </div>
           </form>
         </div>
       </div>
