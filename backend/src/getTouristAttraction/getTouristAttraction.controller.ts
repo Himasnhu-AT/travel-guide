@@ -11,4 +11,10 @@ export class GetTouristAttractionController {
   getTouristAttraction(@Body('location') location: string) {
     return this.service.getTouristAttraction(location);
   }
+
+  @Post('aidemo')
+  @ApiBody({ schema: { properties: { location: { type: 'string' } } } })
+  getTouristAttractionAI(@Body('location') location: string) {
+    return this.service.getTouristAttractionAIDemo(location);
+  }
 }
