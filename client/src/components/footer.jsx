@@ -45,6 +45,10 @@ function Footer() {
                 <a href="https://github.com/bhargavnaidu" target="_blank" rel="noopener noreferrer" className="ml-1"><BsGithub /></a>
               </li>
               <li className="flex items-center mb-2">
+                <p>Gagan Kumar</p>
+                <a href="https://github.com/sammarkgt" target="_blank" rel="noopener noreferrer" className="ml-1"><BsGithub /></a>
+              </li>
+              <li className="flex items-center mb-2">
                 <p>Ridhi Sambhor</p>
                 <a href="https://github.com/ridhisambhor" target="_blank" rel="noopener noreferrer" className="ml-1"><BsGithub /></a>
               </li>

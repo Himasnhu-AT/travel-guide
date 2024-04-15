@@ -57,12 +57,7 @@ const FoodTravelBlog = () => {
       date: 'October 15, 2023',
       content: 'Discover the rich flavors and aromatic spices of Moroccan cuisine as we feast on tagines, couscous, and pastilla in bustling souks and serene riads across the country.',
     },
-    {
-      title: 'A Culinary Odyssey: Sampling Street Eats in Mexico City',
-      author: 'Alexander Brown',
-      date: 'September 1, 2023',
-      content: 'Dive into the vibrant street food culture of Mexico City, where taco stands, tlayudas carts, and elote vendors line the streets, serving up flavorful dishes that reflect the country’s diverse culinary heritage.',
-    },
+    
   ];
 
   return (

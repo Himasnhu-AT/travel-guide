@@ -22,8 +22,11 @@ import AuthorizationPage from './Pages/auth';
 const App = () => {
   return (
     <Router>
+      
       <div className="flex flex-col min-h-screen">
-        <Header />
+      {/* <div className='fixed'> */}
+      <Header />
+      {/* </div> */}
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
@@ -36,7 +39,7 @@ const App = () => {
           <Route path="/TourismAttraction" element={<TourismAttractionBlog />} />
           <Route path="/BudgetFriendlyBlog" element={<BudgetFriendlyBlogPage/>} />
           <Route path="/besttravel" element={<TravelBlogPage/>} />
-          <Route path="/authorization/" element={<AuthorizationPage/>} />
+          <Route path="/authorization" element={<AuthorizationPage/>} />
 
 
           <Route path="/support" element={<ContactAndFAQsPage />} />

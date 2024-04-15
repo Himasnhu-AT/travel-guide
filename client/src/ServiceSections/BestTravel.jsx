@@ -57,10 +57,22 @@ const TravelBlogPage = () => {
       content: 'Escape the crowds and discover the hidden treasures of Southeast Asia, from ancient temples in Cambodia to pristine beaches in Vietnam.',
     },
     {
+      title: 'Island Paradise: Exploring the Maldives',
+      author: 'Sophia Martinez',
+      date: 'February 28, 2024',
+      content: 'Discover the luxurious resorts, crystal-clear waters, and vibrant marine life of the Maldives, a tropical paradise perfect for honeymooners and beach lovers alike.',
+    },
+    {
       title: 'Magical Morocco: A Journey Through the Sahara Desert',
       author: 'Alexander Brown',
       date: 'September 1, 2023',
       content: 'Immerse yourself in the vibrant culture and breathtaking landscapes of Morocco as we traverse the Sahara Desert on camelback and explore ancient medinas.',
+    },
+    {
+      title: 'City of Lights: A Weekend Getaway in Paris',
+      author: 'Olivia Taylor',
+      date: 'December 20, 2023',
+      content: 'Experience the romance and charm of Paris as we stroll along the Seine, savor croissants at sidewalk cafes, and admire iconic landmarks like the Eiffel Tower and Louvre Museum.',
     },
   ];
 

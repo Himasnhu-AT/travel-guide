@@ -19,21 +19,36 @@ const AuthorizationPage = () => {
 
   const handleVerifyCode = async () => {
     setLoading(true);
-    // Simulate code verification (in real app, you would send a request to your server)
+    setErrorMessage(null);
+    
+    // Simulate sending OTP to the user's email
     try {
-      // Simulate API call
-      setLoading(false);
-      setVerificationResult('Authorization successful!');
+      // Simulate API call to send OTP
+      const response = await fetch('http://localhost:4000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }), // Send the user's email to the backend
+      });
+  
+      if (response.ok) {
+        setVerificationResult('OTP sent successfully! Check your email.');
+      } else {
+        throw new Error('Failed to send OTP. Please try again.');
+      }
     } catch (error) {
-      console.error('Error verifying code:', error);
+      console.error('Error sending OTP:', error);
+      setErrorMessage('Failed to send OTP. Please try again.');
+    } finally {
       setLoading(false);
-      setVerificationResult('Authorization failed. Please try again.');
     }
   };
+  
 
   return (
     <div className="flex justify-center items-center h-full min-h-screen mb-20">
-      <div className="max-w-md bg-white rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
+      <div className="max-w-md bg-white rounded-lg overflow-hidden shadow-lg transform ">
         <div className="p-6">
           <h1 className="text-2xl font-bold mb-4">Authorization Page</h1>
           <p>An authorization code has been sent to your email: {email}</p>
