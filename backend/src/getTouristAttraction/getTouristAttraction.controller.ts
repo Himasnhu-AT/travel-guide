@@ -1,4 +1,5 @@
-import { Body, Controller, Post } from '@nestjs/common';
+
+import { Body, Controller, Get, Post } from '@nestjs/common';
 import { GetTouristAttractionService } from './getTouristAttraction.service';
 import { ApiBody } from '@nestjs/swagger';
 

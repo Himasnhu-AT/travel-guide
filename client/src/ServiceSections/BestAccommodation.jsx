@@ -37,6 +37,13 @@ const AccommodationBlog = () => {
       date: 'February 28, 2024',
       content: 'Discover modern luxury and Japanese hospitality with a stay at a design hotel in Tokyo. Experience sleek architecture, stylish interiors, and innovative amenities in the heart of one of the world’s most dynamic cities.',
     },
+    {
+      title: 'Safari Glamping: Luxury Tents in South Africa',
+      location: 'South Africa',
+      author: 'Emily Wilson',
+      date: 'April 5, 2024',
+      content: 'Experience the thrill of safari adventure without sacrificing comfort with a stay at a luxury tented camp in South Africa. Enjoy the best of both worlds as you embark on game drives, bush walks, and starlit dinners under the African sky.',
+    },
   ];
 
   return (

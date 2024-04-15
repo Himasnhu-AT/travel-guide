@@ -9,22 +9,28 @@ const AboutPage = () => {
   // Define an array of contributors with their information
   const contributors = [
     {
+      name: "Himanshu - Team Lead",
+      image: "https://avatars.githubusercontent.com/u/117301124?v=4",
+      github: "https://github.com/himanshu",
+      linkedin: "https://linkedin.com/in/himanshu"
+    },
+    {
       name: "Rahul Kumar",
       image: "https://avatars.githubusercontent.com/u/146073621?v=4",
       github: "https://github.com/jaiyankargupta",
       linkedin: "https://linkedin.com/in/jaiyankargupta"
     },
     {
-      name: "Himanshu",
-      image: "https://avatars.githubusercontent.com/u/117301124?v=4",
-      github: "https://github.com/himanshu",
-      linkedin: "https://linkedin.com/in/himanshu"
-    },
-    {
       name: "Bhargav Naidu",
       image: "https://avatars.githubusercontent.com/u/164229749?v=4",
       github: "https://github.com/bhargavnaidu",
       linkedin: "https://linkedin.com/in/bhargavnaidu"
+    },
+    {
+      name: "Gagan Kumar",
+      image: "https://avatars.githubusercontent.com/u/164229749?v=4",
+      github: "https://github.com/himanshu",
+      linkedin: "https://linkedin.com/in/himanshu"
     },
     {
       name: "Ridhi Sambhor",
