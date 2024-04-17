@@ -46,7 +46,7 @@ const Services = [
 
 const ServiceSection = () => {
   return (
-    <div className="container mx-auto p-8">
+    <div className="container mx-auto p-8 mb-20">
       <h1 className="text-3xl font-bold mb-6 text-center">Our Services</h1>
       <div className="grid grid-cols-3 gap-8">
         {/* Render service cards */}

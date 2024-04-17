@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-const SearchLocations = () => {
+const SearchLocations = ({ searchQuery, onSearchChange }) => {
   const [location, setLocation] = useState([
     "Rohtang Pass: A breathtaking high mountain pass with stunning views of the Himalayas, glaciers and snow-covered peaks. Enjoy snow activities, such as skiing and snowmobiling, during the winter months.",
     "Solang Valley: A picturesque valley known for its lush green meadows, towering peaks, and adventure activities. Engage in paragliding, zorbing, and skiing amidst the scenic surroundings.",
@@ -27,8 +27,6 @@ const SearchLocations = () => {
   const fetchData = async () => {
     console.log("starting...");
     try {
-      const location = document.getElementById("search").value;
-      console.log(location);
       const response = await fetch(
         "http://localhost:4000/get-tourist-attraction/aidemo",
         {
@@ -37,7 +35,7 @@ const SearchLocations = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            location: location,
+            location: searchQuery,
           }),
         }
       );
@@ -50,7 +48,8 @@ const SearchLocations = () => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     fetchData();
   };
 
@@ -60,13 +59,15 @@ const SearchLocations = () => {
         <input
           id="search"
           type="text"
+          value={searchQuery}
+          onChange={onSearchChange}
           placeholder="Location Name, state"
-          className=" p-3 border rounded-full border-black focus:border-blue-300 "
+          className="p-3 border rounded-full border-black focus:border-blue-300"
           required
         />
         <button
           onClick={handleSubmit}
-          className=" text-xl inline-flex items-center justify-center whitespace-nowrap rounded-full font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground shadow-lg hover:bg-primary/90"
+          className="text-xl inline-flex items-center justify-center whitespace-nowrap rounded-full font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 text-primary-foreground shadow-lg hover:bg-primary/90"
         >
           <p className="mx-5">Submit</p>
         </button>
