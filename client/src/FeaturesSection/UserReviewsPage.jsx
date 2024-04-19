@@ -10,22 +10,26 @@ const UserReviewsPage = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       if (containerRef.current) {
-        containerRef.current.scrollLeft += 2; // Adjust the scroll speed here
+        containerRef.current.scrollLeft += 2; 
         setScrollPosition(containerRef.current.scrollLeft);
       }
-    }, 50); // Adjust the scroll interval here
+    }, 50); 
 
     return () => clearInterval(interval);
   }, []);
 
   const handleScrollEnd = () => {
     if (containerRef.current) {
-      if (scrollPosition + containerRef.current.offsetWidth >= containerRef.current.scrollWidth) {
+      const { scrollLeft, offsetWidth, scrollWidth } = containerRef.current;
+      const isEndOfScroll = scrollLeft + offsetWidth >= scrollWidth;
+      
+      if (isEndOfScroll) {
         containerRef.current.scrollLeft = 0;
         setScrollPosition(0);
       }
     }
   };
+  
 
   const userReviewCategories = [
     {
@@ -64,7 +68,7 @@ const UserReviewsPage = () => {
       userName: 'Deepak',
       link: 'https://www.transportreviews.com/',
     },
-    // Add more user review categories with userPhoto and userName
+    
   ];
 
   return (

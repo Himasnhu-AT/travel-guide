@@ -87,7 +87,7 @@ const Signup = () => {
                 onChange={handleChange}
                 className={`py-1 px-2 mt-1 block w-full rounded-md border ${
                   errors.name ? "border-red-500" : "border-gray-300"
-                } shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50`}
+                } shadow-sm`}
               />
               {errors.name && (
                 <p className="text-red-500 text-sm mt-1">{errors.name}</p>
@@ -109,7 +109,7 @@ const Signup = () => {
                 onChange={handleChange}
                 className={`py-1 px-2 mt-1 block w-full rounded-md border ${
                   errors.username ? "border-red-500" : "border-gray-300"
-                } shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50`}
+                } shadow-sm`}
               />
 
               {errors.username && (
@@ -132,7 +132,7 @@ const Signup = () => {
                 onChange={handleChange}
                 className={`py-1 px-2 mt-1 block w-full rounded-md border ${
                   errors.email ? "border-red-500" : "border-gray-300"
-                } shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50`}
+                } shadow-sm `}
               />
 
               {errors.email && (

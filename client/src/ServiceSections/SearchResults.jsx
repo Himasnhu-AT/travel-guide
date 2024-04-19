@@ -9,23 +9,22 @@ const SearchPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Function to fetch search results based on the query
+  
   const fetchSearchResults = async () => {
-    // Example API call to fetch search results based on the query
-    // Replace this with your actual API call
-    setLoading(true); // Set loading state to true before fetching data
+    
+    setLoading(true); 
     try {
       const response = await fetch(`https://api.example.com/search?q=${query}`);
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
       const data = await response.json();
-      setResults(data.results); // Assuming the API response contains an array of search results
+      setResults(data.results); 
     } catch (error) {
       console.error('Error fetching search results:', error);
-      setError(error.message); // Set error message in case of an error
+      setError(error.message); 
     } finally {
-      setLoading(false); // Set loading state to false after fetching data
+      setLoading(false); 
     }
   };
 

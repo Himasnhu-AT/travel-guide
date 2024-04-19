@@ -32,7 +32,7 @@ const ContactAndFAQsPage = () => {
   return (
     <div className="p-8 grid grid-cols-2 gap-8">
       <div>
-        <Card className="p-8 hover:shadow-xl transition duration-300 ">
+        <Card className="p-8 ">
           <h1 className="text-3xl font-bold mb-4">Get In Touch</h1>
           <p className="mb-4">Have questions or feedback? We'd love to hear from you!</p>
           <ul className="list-disc ml-6">
@@ -53,7 +53,7 @@ const ContactAndFAQsPage = () => {
         </Card>
       </div>
       <div>
-  <Card className="p-8 hover:shadow-xl transition duration-300 ">
+  <Card className="p-8  ">
     <h1 className="text-3xl font-bold mb-4">Contact Form</h1>
     <form onSubmit={handleSubmit}>
       <div className="mb-4">
