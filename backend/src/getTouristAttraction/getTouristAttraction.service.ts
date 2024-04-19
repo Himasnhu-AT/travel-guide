@@ -12,6 +12,37 @@ interface LocationAI {
 export class GetTouristAttractionService {
   constructor(private readonly prisma: PrismaService) {}
 
+  async getRoutes(location: string) {
+    try {
+      const locationSplitted = location.split(',')[0];
+
+      const routes = await this.prisma.route.findMany({
+        where: {
+          to: locationSplitted,
+        },
+      });
+
+      return { routes };
+    } catch (e) {
+      console.log(e);
+      throw new Error('Server failed' + e);
+    }
+  }
+  async getHotels(location: string) {
+    try {
+      const hotels = await this.prisma.hostel.findMany({
+        where: {
+          location: location,
+        },
+      });
+
+      return { hotels };
+    } catch (e) {
+      console.log(e);
+      throw new Error('Server failed to get tourist attraction.');
+    }
+  }
+
   async getTouristAttraction(location: string) {
     const eating_text: string =
       'catering.cafe,catering.fast_food,catering.restaurant';
