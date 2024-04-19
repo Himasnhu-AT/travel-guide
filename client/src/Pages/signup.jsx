@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const Signup = () => {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     username: "",
@@ -23,12 +23,12 @@ const Signup = () => {
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value.trim() }); 
+    setFormData({ ...formData, [name]: value.trim() });
     setErrors({ ...errors, [name]: "" });
   };
 
   const handleSubmit = async (e) => {
-    setLoading(true)
+    setLoading(true);
     e.preventDefault();
     const fetchData = async (email, name) => {
       try {
@@ -39,7 +39,7 @@ const Signup = () => {
           },
           body: JSON.stringify({
             email,
-            name
+            name,
           }),
         });
 
@@ -52,23 +52,21 @@ const Signup = () => {
 
         if (data.token) {
           localStorage.setItem("authData", JSON.stringify(data));
-          history.push("/authorization"); // Navigate to authorization page on successful login
+          window.location.href = "/dashboard"; // Redirect to dashboard
         } else {
           // Handle unsuccessful login (provide specific error message based on response)
           const errorMessage =
             response.status === 401 ? "Unauthorized" : "Login failed";
-          
         }
       } catch (error) {
-        setLoading(false)
+        setLoading(false);
         console.error("Signin error:", error);
       } finally {
         setLoading(false);
-        window.location.href =`/authorization?email=${email}`
       }
     };
 
-    fetchData(formData.email, formData.name )
+    fetchData(formData.email, formData.name);
   };
 
   return (
@@ -89,7 +87,7 @@ const Signup = () => {
                 onChange={handleChange}
                 className={`py-1 px-2 mt-1 block w-full rounded-md border ${
                   errors.name ? "border-red-500" : "border-gray-300"
-                } shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50`}
+                } shadow-sm`}
               />
               {errors.name && (
                 <p className="text-red-500 text-sm mt-1">{errors.name}</p>
@@ -111,11 +109,13 @@ const Signup = () => {
                 onChange={handleChange}
                 className={`py-1 px-2 mt-1 block w-full rounded-md border ${
                   errors.username ? "border-red-500" : "border-gray-300"
-                } shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50`}
+                } shadow-sm`}
               />
 
               {errors.username && (
-                <p className="text-red-500 text-sm mt-1">{errors.username}</p>
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.username}
+                </p>
               )}
             </div>
 
@@ -132,7 +132,7 @@ const Signup = () => {
                 onChange={handleChange}
                 className={`py-1 px-2 mt-1 block w-full rounded-md border ${
                   errors.email ? "border-red-500" : "border-gray-300"
-                } shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50`}
+                } shadow-sm `}
               />
 
               {errors.email && (

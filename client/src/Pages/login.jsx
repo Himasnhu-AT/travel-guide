@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { LoaderCircle } from "lucide-react"; // Import LoaderCircle
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -26,8 +25,8 @@ const Login = () => {
     }
 
     const fetchData = async (email) => {
-      console.log("fetching data...")
-      console.log(email)
+      console.log("fetching data...");
+      console.log(email);
       try {
         const response = await fetch("http://localhost:4000/auth/signin", {
           method: "POST",
@@ -44,30 +43,28 @@ const Login = () => {
         }
 
         const data = await response.json();
-        console.log(data);  
+        console.log(data);
 
-          localStorage.setItem("token", data.data.token);
-          localStorage.setItem("name", data.data.name);
-          localStorage.setItem("userId", data.data.id);
-          localStorage.setItem("email", data.data.email);
-
+        localStorage.setItem("token", data.data.token);
+        localStorage.setItem("name", data.data.name);
+        localStorage.setItem("userId", data.data.id);
+        localStorage.setItem("email", data.data.email);
       } catch (error) {
         console.error("Signin error:", error);
-        setError("Failed to connect to server or Network Error"); // More specific error message
+        setError("Failed to connect to server or Network Error");
       } finally {
         setLoading(false);
-        window.location.href =`/authorization?email=${email}`
+        window.location.href = `/authorization?email=${email}`;
       }
     };
 
     fetchData(email);
   };
 
-  // Handle loader timeout for 5 seconds
   useEffect(() => {
     if (isLoading) {
-      const timeoutId = setTimeout(() => setIsLoading(false), 5000); // Set timeout for 5 seconds
-      return () => clearTimeout(timeoutId); // Cleanup function to clear timeout on unmount
+      const timeoutId = setTimeout(() => setIsLoading(false), 10000);
+      return () => clearTimeout(timeoutId);
     }
   }, [isLoading]);
 
@@ -78,7 +75,7 @@ const Login = () => {
           <h2 className="text-3xl font-semibold mb-4 text-center">Login</h2>
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label className="block text-xm font-medium text-gray-700">
+              <label className="block text-xm font-medium">
                 Email
               </label>
               <input
@@ -86,7 +83,7 @@ const Login = () => {
                 value={email}
                 onChange={handleChange}
                 placeholder="Enter your email"
-                className={`py-1 px-2 mt-1 block w-full rounded-md border border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 ${
+                className={`py-1 px-2 mt-1 block w-full rounded-md border border-gray-300 shadow-sm   focus:ring-opacity-50 ${
                   error ? "border-red-500" : ""
                 }`}
               />
@@ -96,8 +93,7 @@ const Login = () => {
               type="submit"
               className="mt-2 bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition duration-300 ease-in-out w-full"
             >
-              {/* Conditionally render loading or login text */}
-              {isLoading ? 'Loading...' : "Login"}
+              {isLoading ? "Loading..." : "Login"}
             </button>
             <div className="mt-3 mb-4 flex float-right">
               Don't have an account?{" "}

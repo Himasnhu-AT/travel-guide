@@ -17,6 +17,7 @@ import TravelBlogPage from "./ServiceSections/BestTravel";
 import BudgetFriendlyBlogPage from "./ServiceSections/budgetFriendly";
 import AuthorizationPage from "./Pages/auth";
 import Dashboard from "./Pages/dashboard";
+import SearchDestination from "./components/SearchDestination";
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/searchdestination" element={<SearchDestination />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/CheckWeather" element={<WeatherCard />} />
